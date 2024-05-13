@@ -11,28 +11,32 @@ export default function Weather() {
               type="search"
               placeholder="Enter a city"
               className="form-control"
+              autoFocus="on"
               required
             />
           </div>
           <div className="col-3">
-            <input type="submit" value="Search" className="btn btn-primary" />
+            <input type="submit" value="Search" className="btn w-100" />
           </div>
         </div>
       </form>
-      <div className="row">
-        <div className="col-6">
+      <div className="row py-4">
+        <div className="col-6 d-flex align-items-end">
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt="partly cloudy"
           ></img>
-          <p>26°C</p>
+          <p>
+            <span className="temperature">26</span>
+            <span className="unit">°C</span>
+          </p>
           <ul>
             <li>Precipitation: 0%</li>
             <li>Humidity: 28%</li>
             <li>Wind: 16 km/h</li>
           </ul>
         </div>
-        <div className="col-6">
+        <div className="col-6 text-end">
           <h1>Perth</h1>
           <ul>
             <li>Monday 12:00pm</li>
