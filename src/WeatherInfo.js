@@ -8,7 +8,7 @@ export default function WeatherInfo(props) {
     <div className="WeatherInfo">
       <div className="row py-4 px-1">
         <div className="col-7 d-flex align-items-end">
-          <WeatherIcon code={props.data.icon} />
+          <WeatherIcon code={props.data.icon} color={"#fff"} size={50}/>
           <WeatherTemperature celsius={props.data.temperature} />
           <ul>
             <li>Feels like: {Math.round(props.data.feelsLike)} °C</li>
