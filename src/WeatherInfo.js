@@ -6,9 +6,9 @@ import WeatherTemperature from "./WeatherTemperature";
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <div className="row py-4 px-1">
-        <div className="col-7 d-flex align-items-end">
-          <WeatherIcon code={props.data.icon} color={"#fff"} size={50}/>
+      <div className="d-flex justify-content-between flex-column-reverse align-items-center flex-md-row align-items-md-stretch py-4 px-1">
+        <div className="d-flex align-items-end">
+          <WeatherIcon code={props.data.icon} color={"#fff"} size={50} />
           <WeatherTemperature celsius={props.data.temperature} />
           <ul>
             <li>Feels like: {Math.round(props.data.feelsLike)} °C</li>
@@ -16,9 +16,9 @@ export default function WeatherInfo(props) {
             <li>Wind: {props.data.wind} km/h</li>
           </ul>
         </div>
-        <div className="col-5 text-end">
+        <div className="text-center text-md-end pb-4 pb-md-0">
           <h1>{props.data.city}</h1>
-          <ul>
+          <ul className="p-0">
             <li>
               <FormattedDate date={props.data.date} />
             </li>

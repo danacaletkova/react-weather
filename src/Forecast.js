@@ -26,23 +26,21 @@ export default function Forecast(props) {
 
   if (ready) {
     return (
-      <>
-        <div className="Forecast">
-          <div className="row pt-4 pb-2">
-            {forecast.map(function (dailyForecast, index) {
-              if (index < 7) {
-                return (
-                  <div className="col" key={index}>
-                    <ForecastDay data={dailyForecast} />
-                  </div>
-                );
-              } else {
-                return null;
-              }
-            })}
-          </div>
+      <div className="Forecast">
+        <div className="d-sm-flex justify-content-between pt-4 pb-2">
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 7) {
+              return (
+                <div key={index}>
+                  <ForecastDay data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
-      </>
+      </div>
     );
   } else {
     searchForecast();
