@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { TailSpin } from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
 import "./Weather.css";
@@ -43,15 +44,15 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
-              <input
-                type="search"
-                placeholder="Enter a city"
-                className="form-control"
-                autoFocus="on"
-                required
-                onChange={handleInput}
-              />
-              <input type="submit" value="Search" className="btn w-100" />
+          <input
+            type="search"
+            placeholder="Enter a city"
+            className="form-control"
+            autoFocus="on"
+            required
+            onChange={handleInput}
+          />
+          <input type="submit" value="Search" className="btn w-100" />
         </form>
         <WeatherInfo data={weatherData} />
         <Forecast coordinates={weatherData.coordinates} />
@@ -59,6 +60,19 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <div className="d-flex justify-content-center p-5 m-5">
+        <TailSpin
+          visible={true}
+          height="80"
+          width="80"
+          color="#66fcf1"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    );
   }
 }
