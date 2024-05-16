@@ -9,7 +9,11 @@ export default function WeatherInfo(props) {
       <div className="d-flex justify-content-between flex-column-reverse align-items-center flex-md-row align-items-md-stretch py-4 px-1">
         <div className="d-flex align-items-end">
           <WeatherIcon code={props.data.icon} color={"#fff"} size={50} />
-          <WeatherTemperature celsius={props.data.temperature} />
+          <WeatherTemperature
+            celsius={props.data.temperature}
+            unit={props.unit}
+            change={props.change}
+          />
           <ul>
             <li>Feels like: {Math.round(props.data.feelsLike)} °C</li>
             <li>Humidity: {props.data.humidity} %</li>

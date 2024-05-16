@@ -32,7 +32,7 @@ export default function Forecast(props) {
             if (index < 7) {
               return (
                 <div key={index}>
-                  <ForecastDay data={dailyForecast} />
+                  <ForecastDay data={dailyForecast} unit={props.unit} change={props.change} />
                 </div>
               );
             } else {

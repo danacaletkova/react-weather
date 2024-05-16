@@ -9,14 +9,14 @@ export default function ForecastDay(props) {
     return dayNames[date.getDay()];
   }
 
-  function maxTemp() {
-    let temp = Math.round(props.data.temp.max);
-    return `${temp}°`;
-  }
-
-  function minTemp() {
-    let temp = Math.round(props.data.temp.min);
-    return `${temp}°`;
+  function formatTemp(temp) {
+    let celsiusTemp = Math.round(temp);
+    let fahrenheitTemp = Math.round((temp * 9) / 5 + 32);
+    if (props.unit === "celsius") {
+      return `${celsiusTemp}°`;
+    } else {
+      return `${fahrenheitTemp}°`;
+    }
   }
 
   return (
@@ -28,8 +28,8 @@ export default function ForecastDay(props) {
         size={28}
       />
       <div>
-        <span>{maxTemp()}</span>
-        <span className="tempMin">{minTemp()}</span>
+        <span>{formatTemp(props.data.temp.max)}</span>
+        <span className="tempMin">{formatTemp(props.data.temp.min)}</span>
       </div>
     </div>
   );

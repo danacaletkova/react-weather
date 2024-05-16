@@ -8,6 +8,15 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [unit, setUnit] = useState("celsius");
+
+  function changeUnit() {
+    if (unit === "celsius") {
+      setUnit("fahrenheit");
+    } else {
+      setUnit("celsius");
+    }
+  }
 
   function getWeather(response) {
     setWeatherData({
@@ -54,8 +63,12 @@ export default function Weather(props) {
           />
           <input type="submit" value="Search" className="btn w-100" />
         </form>
-        <WeatherInfo data={weatherData} />
-        <Forecast coordinates={weatherData.coordinates} />
+        <WeatherInfo data={weatherData} unit={unit} change={changeUnit} />
+        <Forecast
+          coordinates={weatherData.coordinates}
+          unit={unit}
+          change={changeUnit}
+        />
       </div>
     );
   } else {
