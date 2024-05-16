@@ -42,3 +42,15 @@
   max-height: 50px;
   padding-bottom: 5px;
 }
+
+@media (max-width: 380px) {
+  .Weather ul {
+    font-size: 12px;
+  }
+
+  .Weather canvas {
+    max-height: 30px;
+    align-self: center;
+    padding: 0;
+  }
+}

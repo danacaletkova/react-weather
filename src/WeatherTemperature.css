@@ -18,3 +18,14 @@
   color: #fff;
   opacity: 0.5;
 }
+
+@media (max-width: 380px) {
+  .WeatherTemperature .temperature {
+    font-size: 54px;
+  }
+
+  .WeatherTemperature .unit {
+    bottom: 30px;
+    font-size: 12px;
+  }
+}
