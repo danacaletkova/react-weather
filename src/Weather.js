@@ -19,7 +19,6 @@ export default function Weather(props) {
   }
 
   function getWeather(response) {
-    if (response.data.name !== undefined) {
       setWeatherData({
         ready: true,
         city: response.data.name,
@@ -32,9 +31,6 @@ export default function Weather(props) {
         wind: response.data.wind.speed,
         icon: response.data.weather[0].icon,
       });
-    } else {
-      alert("We were not able to find this city. Please try again.");
-    }
   }
 
   function search() {
