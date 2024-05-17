@@ -2,13 +2,7 @@ import React from "react";
 import "./WeatherTemperature.css";
 
 export default function WeatherTemperature(props) {
-
-  function showFahrenheit(event) {
-    event.preventDefault();
-    props.change();
-  }
-
-  function showCelsius(event) {
+  function swapUnits(event) {
     event.preventDefault();
     props.change();
   }
@@ -19,7 +13,7 @@ export default function WeatherTemperature(props) {
         <span className="temperature">{Math.round(props.celsius)}</span>
         <span className="unit">
           °C{" "}
-          <a href="/" onClick={showFahrenheit}>
+          <a href="/" onClick={swapUnits}>
             | °F
           </a>
         </span>
@@ -32,7 +26,7 @@ export default function WeatherTemperature(props) {
         <span className="temperature">{Math.round(fahrenheit)}</span>
         <span className="unit">
           °F{" "}
-          <a href="/" onClick={showCelsius}>
+          <a href="/" onClick={swapUnits}>
             | °C
           </a>
         </span>
