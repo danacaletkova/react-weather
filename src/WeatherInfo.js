@@ -4,6 +4,22 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
+  function formatFeelsLike() {
+    if (props.unit === "celsius") {
+      return `${Math.round(props.data.feelsLike)} °C`;
+    } else {
+      return `${Math.round((props.data.feelsLike * 9) / 5 + 32)} °F`;
+    }
+  }
+
+  function formatWind() {
+    if (props.unit === "celsius") {
+      return `${Math.round(props.data.wind)} km/h`;
+    } else {
+      return `${Math.round(props.data.wind * 0.62)} mph`;
+    }
+  }
+
   return (
     <div className="WeatherInfo">
       <div className="d-flex justify-content-between flex-column-reverse align-items-center flex-md-row align-items-md-stretch py-4 px-1">
@@ -15,9 +31,9 @@ export default function WeatherInfo(props) {
             change={props.change}
           />
           <ul>
-            <li>Feels like: {Math.round(props.data.feelsLike)} °C</li>
+            <li>Feels like: {formatFeelsLike()}</li>
             <li>Humidity: {props.data.humidity} %</li>
-            <li>Wind: {props.data.wind} km/h</li>
+            <li>Wind: {formatWind()}</li>
           </ul>
         </div>
         <div className="text-center text-md-end pb-4 pb-md-0">
