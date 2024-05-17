@@ -19,7 +19,7 @@ export default function Weather(props) {
   }
 
   function getWeather(response) {
-    if (response.data.name != undefined) {
+    if (response.data.name !== undefined) {
       setWeatherData({
         ready: true,
         city: response.data.name,
