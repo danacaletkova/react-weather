@@ -19,18 +19,22 @@ export default function Weather(props) {
   }
 
   function getWeather(response) {
-    setWeatherData({
-      ready: true,
-      city: response.data.name,
-      coordinates: response.data.coord,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      temperature: response.data.main.temp,
-      feelsLike: response.data.main.feels_like,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      icon: response.data.weather[0].icon,
-    });
+    if (response.data.name != undefined) {
+      setWeatherData({
+        ready: true,
+        city: response.data.name,
+        coordinates: response.data.coord,
+        date: new Date(response.data.dt * 1000),
+        description: response.data.weather[0].description,
+        temperature: response.data.main.temp,
+        feelsLike: response.data.main.feels_like,
+        humidity: response.data.main.humidity,
+        wind: response.data.wind.speed,
+        icon: response.data.weather[0].icon,
+      });
+    } else {
+      alert("We were not able to find this city. Please try again.");
+    }
   }
 
   function search() {
